@@ -1,4 +1,4 @@
-/* body { 
+body { 
     font-family: sans-serif; 
     background-color: #f4f4f4; 
     margin: 0; 
@@ -18,14 +18,14 @@
 .recipe-card img { 
     width: 100%; 
     border-radius: 5px; 
-} */
+}
 
-:root {
+/* :root {
             --primary-yellow: #f1c40f;
             --dark-bg: #111;
             --light-text: #fff;
             --card-bg: #fff;
-        }
+        } */
 
         * {
             box-sizing: border-box;
