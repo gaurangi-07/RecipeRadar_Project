@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food. Recipe Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">Food.</div>
+        <ul class="nav-links">
+            <li>Recipes</li>
+            <li>Popular</li>
+            <li>Healthy</li>
+            <li>Cuisine</li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h2>TOP 100 FIVE-INGREDIENT DINNERS</h2>
+        
+        <div class="controls-overlay">
+            <input type="text" id="searchInput" placeholder="Search recipes by name..." oninput="handleInteraction()">
+            <select id="sortSelect" onchange="handleInteraction()">
+                <option value="default">Sort by</option>
+                <option value="quickest">Quickest Time</option>
+                <option value="healthy">Healthiest</option>
+            </select>
+            <select id="filterCuisine">
+                <option value="all">All Cuisines</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+            </select>
+
+            <select id="sortOptions">
+                <option value="default">Sort By</option>
+                <option value="alphabetical">A-Z</option>
+                <option value="time">Fastest First</option>
+            </select>
+        </div>
+    </section>
+
+
+    <main id="recipeContainer">
+        <p id="loading">Loading recipes...</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
