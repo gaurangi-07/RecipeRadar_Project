@@ -5,49 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Food. Recipe Explorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
+<body data-theme="light">
+
     <nav>
-        <div class="logo">Food.</div>
-        <ul class="nav-links">
-            <li>Recipes</li>
-            <li>Popular</li>
-            <li>Healthy</li>
-            <li>Cuisine</li>
+        <a href="#" class="logo" onclick="showView('main')">Food.</a>
+        
+        <ul class="nav-menu">
+            <li><a onclick="showView('main')">Popular</a></li>
+            <li><a onclick="showView('main')">Cuisine</a></li>
+            <li><a onclick="showView('liked')">Liked Basket</a></li>
         </ul>
+
+        <div class="nav-right">
+            <button id="themeToggle" onclick="toggleTheme()">Dark Mode</button>
+            <div style="cursor: pointer;">🔍</div>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h2>TOP 100 FIVE-INGREDIENT DINNERS</h2>
-        
-        <div class="controls-overlay">
-            <input type="text" id="searchInput" placeholder="Search recipes by name..." oninput="handleInteraction()">
-            <select id="sortSelect" onchange="handleInteraction()">
-                <option value="default">Sort by</option>
-                <option value="quickest">Quickest Time</option>
-                <option value="healthy">Healthiest</option>
-            </select>
-            <select id="filterCuisine">
-                <option value="all">All Cuisines</option>
-                <option value="Italian">Italian</option>
-                <option value="Mexican">Mexican</option>
-            </select>
 
-            <select id="sortOptions">
-                <option value="default">Sort By</option>
-                <option value="alphabetical">A-Z</option>
-                <option value="time">Fastest First</option>
-            </select>
-        </div>
-    </section>
+    <div id="mainView">
+        <section class="hero">
+            <h2>Top 100 Five-Ingredient Dinners</h2>
+            <div class="controls-overlay">
+                <input type="text" id="searchInput" placeholder="Search by name..." oninput="applyInteractions()">
+                <select id="filterType" onchange="applyInteractions()">
+                    <option value="all">All Diets</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="glutenFree">Gluten Free</option>
+                </select>
+                <select id="sortSelect" onchange="applyInteractions()">
+                    <option value="default">Sort by...</option>
+                    <option value="az">A to Z</option>
+                    <option value="quickest">Time (Low-High)</option>
+                </select>
+            </div>
+        </section>
 
+        <main class="content-section">
+            <h2 class="section-header">Discover Recipes</h2>
+            <div id="loading">Gathering ingredients...</div>
+            <div id="recipeGrid" class="recipe-grid"></div>
+        </main>
+    </div>
 
-    <main id="recipeContainer">
-        <p id="loading">Loading recipes...</p>
-    </main>
+    <!-- Liked Basket View -->
+    <div id="likedView" style="display: none;">
+        <main class="content-section">
+            <h2 class="section-header">Liked Basket</h2>
+            <div id="likedGrid" class="recipe-grid"></div>
+            <p id="emptyLikedMsg" style="display: none; text-align: center; margin-top: 50px;">Your basket is empty. Heart some recipes to see them here!</p>
+        </main>
+    </div>
 
-    <script src="script.js"></script>
-</body>
+    </body>
+
+<script src="script.js"></script>
 </html>
